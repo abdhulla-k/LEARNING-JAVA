@@ -5,7 +5,7 @@ public class main{
 
         Scanner s = new Scanner( System.in );
 
-        System.out.println( "Enter \n 1 for addition \n 2 for substraction \n 3 for multiplication\n 4 for divition \n 5 for find percentage \n 6 for CAGR \n 7 for find sine");
+        System.out.println( "Enter \n 1 for addition \n 2 for substraction \n 3 for multiplication\n 4 for divition \n 5 for find percentage \n 6 for CAGR \n 7 for find sine \n 8 for PE ratio");
         int number = s.nextInt();
 
         
@@ -102,6 +102,15 @@ public class main{
             float result = sin( oposit, hypotenuse );
             System.out.println( "sine is :" +result );
 
+        }else if( number == 8 ){
+
+            System.out.println( "Enter\n count of outstanding shares \n net income" );
+            
+            float shares = s.nextInt();
+            float income = s.nextInt();
+            float PE = PE( shares, income );
+
+            System.out.println( "result is :"+PE );
         }
 
         else{
@@ -169,6 +178,11 @@ static float sin( float oposit, float hypotenuse){
 
     return sine;
 
+}
+static float PE( float shares, float netIncome ){
+
+    float result = netIncome / shares;
+    return result;
 }
 
 }
