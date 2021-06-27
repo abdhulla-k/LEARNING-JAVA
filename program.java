@@ -5,7 +5,7 @@ public class main{
 
         Scanner s = new Scanner( System.in );
 
-        System.out.println( "Enter \n 1 for addition \n 2 for substraction \n 3 for multiplication\n 4 for divition \n 5 for find percentage \n 6 for CAGR \n 7 for find sine \n 8 for PE ratio");
+        System.out.println( "Enter \n 1 for addition \n 2 for substraction \n 3 for multiplication\n 4 for divition \n 5 for find percentage \n 6 for CAGR \n 7 for Growth percentage \n 8 for PE ratio");
         int number = s.nextInt();
 
         
@@ -95,12 +95,13 @@ public class main{
 
         }else if( number == 7 ){
 
-            System.out.println( " Enter \n oposit side\n hypotenuse\n ");
+            System.out.println( " Initial investment \n growth rate\n time frame\n ");
 
-            float oposit = s.nextInt();
-            float hypotenuse = s.nextInt();
-            float result = sin( oposit, hypotenuse );
-            System.out.println( "sine is :" +result );
+            float InitialInvestment = s.nextInt();
+            float growthPercentage = s.nextInt();
+            float timeFrame = s.nextInt();
+            float result = growthPercentage( InitialInvestment, growthPercentage, timeFrame );
+            System.out.println( "Total Percentage is :" +result );
 
         }else if( number == 8 ){
 
@@ -172,11 +173,21 @@ static float CAGR( float InitialInvestment, float GrowthRate, float TimeFrame ){
     return result;
 }
 
-static float sin( float oposit, float hypotenuse){
+static float growthPercentage( float InitialInvestment, float percentage ,float timeframe ){
 
-    float sine = oposit / hypotenuse;
+    float ressult = CAGR( InitialInvestment, percentage, timeframe );
 
-    return sine;
+    System.out.println( "Grown amount is : " +ressult );
+
+    
+    float OnePercentage = InitialInvestment / 100;
+    float Answer = ressult / OnePercentage;
+
+    float growth = Answer - 100;
+
+    System.out.println( "Growth percentage is :" +growth );
+
+    return Answer;
 
 }
 static float PE( float shares, float netIncome ){
